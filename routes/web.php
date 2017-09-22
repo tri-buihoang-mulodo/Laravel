@@ -32,13 +32,28 @@
 // });
 
 // example 04
-Route::get('/', function () {
-	$name = 'Hoàng Trí';
-	$age = 22;
-	$tasks= [
-		'Go to the store',
-		'Finish my screencast',
-		'Clean the house'
-	];
-    return view('welcome',compact('name','age','tasks'));
+// Route::get('/', function () {
+// 	$name = 'Hoàng Trí';
+// 	$age = 22;
+// 	$tasks= [
+// 		'Go to the store',
+// 		'Finish my screencast',
+// 		'Clean the house'
+// 	];
+//     return view('welcome',compact('name','age','tasks'));
+// });
+
+// example 05
+Route::get('/tasks', function () {
+	$tasks = DB::table('tasks')->get();
+	// return $tasks;
+    return view('tasks.index',compact('tasks'));
+});
+
+// example 06
+Route::get('/tasks/{task}', function ($id) {
+	// dd($id);
+	$task = DB::table('tasks')->find($id);	
+	// return $tasks;
+    return view('tasks.show',compact('task'));
 });
