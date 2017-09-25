@@ -44,16 +44,31 @@
 // });
 
 // example 05
+// Route::get('/tasks', function () {
+// 	$tasks = DB::table('tasks')->get();
+// 	// return $tasks;
+//     return view('tasks.index',compact('tasks'));
+// });
+
+// example 06
+// Route::get('/tasks/{task}', function ($id) {
+// 	// dd($id);
+// 	$task = DB::table('tasks')->find($id);	
+// 	// return $tasks;
+//     return view('tasks.show',compact('task'));
+// });
+
+use App\Task;
+// example 07
 Route::get('/tasks', function () {
-	$tasks = DB::table('tasks')->get();
-	// return $tasks;
+	$tasks = Task::all();
     return view('tasks.index',compact('tasks'));
 });
 
-// example 06
+// example 08
 Route::get('/tasks/{task}', function ($id) {
-	// dd($id);
-	$task = DB::table('tasks')->find($id);	
-	// return $tasks;
+	
+	$task = Task::find($id);	
+	
     return view('tasks.show',compact('task'));
 });
