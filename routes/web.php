@@ -59,16 +59,20 @@
 // });
 
 use App\Task;
+
 // example 07
-Route::get('/tasks', function () {
-	$tasks = Task::all();
-    return view('tasks.index',compact('tasks'));
-});
+// Route::get('/tasks', function () {
+// 	$tasks = Task::all();
+//     return view('tasks.index',compact('tasks'));
+// });
+Route::get('/tasks','TasksController@index');
+
 
 // example 08
-Route::get('/tasks/{task}', function ($id) {
+// Route::get('/tasks/{task}', function ($id) {
 	
-	$task = Task::find($id);	
+// 	$task = Task::find($id);	
 	
-    return view('tasks.show',compact('task'));
-});
+//     return view('tasks.show',compact('task'));
+// });
+Route::get('/tasks/{task}','TasksController@show');
