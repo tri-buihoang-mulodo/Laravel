@@ -76,3 +76,7 @@ Route::get('/tasks','TasksController@index');
 //     return view('tasks.show',compact('task'));
 // });
 Route::get('/tasks/{task}','TasksController@show');
+
+// lesson 10: Layouts and Structure
+Route::get('/','PostsController@index');
+Route::get('/posts/{post}','PostsController@show');
