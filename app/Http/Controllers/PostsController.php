@@ -38,6 +38,10 @@ class PostsController extends Controller
         //     'body' => request('body')
         // ]);
 
+        $this->validate(request(),[
+            'title' => 'required',
+            'body' => 'required|min:10'
+        ]);
         Post::create(request(['title','body']));
         // And then redirect to the home page.
         return redirect('/');
