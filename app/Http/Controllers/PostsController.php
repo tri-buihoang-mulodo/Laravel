@@ -7,14 +7,22 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    // public function index()
+    // {
+    // 	return view ('posts.index');
+    // }
+
+    // lesson 13: Rendering Posts
     public function index()
     {
-    	return view ('posts.index');
+        $posts = Post::orderby('created_at','asc')->get();
+        return view ('posts.index', compact('posts'));
     }
 
-    public function show()
+    public function show($id)
     {
-    	return view ('posts.show');
+        $post = Post::find($id);
+    	return view ('posts.show',compact('post'));
     }
 
     public function create()
