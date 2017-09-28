@@ -9,16 +9,35 @@
 
 	<div class="comments">
 		<ul class="list-group">
-			
-		</ul>
-		@foreach ($post->comments as $comment)
-		<li class="list-group-item">
-			<strong>
-				{{$comment->created_at->diffForHumans()}} : &nbsp;
-			</strong>
-			{{ $comment->body }}
-		</li>			
-		@endforeach
+			@foreach ($post->comments as $comment)
+				<li class="list-group-item">
+					<strong>
+						{{$comment->created_at->diffForHumans()}} : &nbsp;
+					</strong>
+					{{ $comment->body }}
+				</li>			
+			@endforeach	
+		</ul>		
+	</div>
+
+	<!-- Add comment -->
+	<hr>
+	<div class="card">
+		<div class="card-block">
+			<form method="post" action="/posts/{{$post->id}}/comments">
+				{{ csrf_field() }}
+
+				<div class="form-group">
+					<textarea class="form-control" name="body" placeholder="Your commenthere." required=""></textarea>
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit">Add Comment</button>
+				</div>
+			</form>
+
+			@include('layouts.errors')
+		</div>
 	</div>
 </div>
 @endsection
