@@ -19,4 +19,9 @@ class Post extends Model
     	// 	'post_id' => $this->id
     	// ]);
     }
+
+    // lesson 18: 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
