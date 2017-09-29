@@ -82,10 +82,17 @@ Route::get('/tasks/{task}','TasksController@show');
 // Route::get('/posts/{id}','PostsController@show');
 
 // lesson 11: Form Request Data and CSRF
-Route::get('/','PostsController@index');
+Route::get('/','PostsController@index')->name('home');
 Route::get('/posts/create','PostsController@create');
 Route::post('/posts','PostsController@store');
 Route::get('/posts/{id}','PostsController@show');
 
 // lesson 16: Add Comments
 Route::post('/posts/{post}/comments','CommentsController@store');
+
+// lesson 19: Associating With Users
+Route::get('/register','RegistrationController@create');
+Route::post('/register','RegistrationController@store');
+Route::get('/login','SessionsController@create');
+Route::post('/login','SessionsController@store');
+Route::get('/logout','SessionsController@destroy');
