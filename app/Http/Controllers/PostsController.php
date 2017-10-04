@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Carbon\Carbon;
+use App\Repositories\Posts;
 
 class PostsController extends Controller
 {
@@ -20,16 +21,21 @@ class PostsController extends Controller
     // }
 
     // lesson 13: Rendering Posts
-    public function index()
+    public function index(Posts $posts)
     {
         // $posts = Post::orderby('created_at','asc')->get();
 
         // lesson 20:
-        $posts = Post::latest()
-            ->filter(request(['month','year']))
-            ->get();
+        // $posts = Post::latest()
+        //     ->filter(request(['month','year']))
+        //     ->get();
 
+        //  lesson 21:
+        // $posts = (new \App\Repositories\Posts)->all();
+
+        // lesson 23:
         
+        $posts = $posts->all();
         
 
         return view ('posts.index', compact('posts'));
