@@ -81,6 +81,15 @@ Route::get('/tasks/{task}','TasksController@show');
 // Route::get('/','PostsController@index');
 // Route::get('/posts/{id}','PostsController@show');
 
+// lesson 24
+App::singleton('App\Billing\Stripe', function () {
+	return new \App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+
+
+
+
 // lesson 11: Form Request Data and CSRF
 Route::get('/','PostsController@index')->name('home');
 Route::get('/posts/create','PostsController@create');
