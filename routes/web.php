@@ -87,7 +87,7 @@ Route::get('/tasks/{task}','TasksController@show');
 // });
 
 
-dd(resolve('App\Billing\Stripe'));
+// dd(resolve('App\Billing\Stripe'));
 
 
 // lesson 11: Form Request Data and CSRF
