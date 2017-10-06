@@ -82,12 +82,12 @@ Route::get('/tasks/{task}','TasksController@show');
 // Route::get('/posts/{id}','PostsController@show');
 
 // lesson 24
-App::singleton('App\Billing\Stripe', function () {
-	return new \App\Billing\Stripe(config('services.stripe.secret'));
-});
+// App::singleton('App\Billing\Stripe', function () {
+// 	return new \App\Billing\Stripe(config('services.stripe.secret'));
+// });
 
 
-
+dd(resolve('App\Billing\Stripe'));
 
 
 // lesson 11: Form Request Data and CSRF
