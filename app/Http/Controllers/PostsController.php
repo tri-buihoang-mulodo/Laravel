@@ -21,7 +21,7 @@ class PostsController extends Controller
     // }
 
     // lesson 13: Rendering Posts
-    public function index()
+    public function index(Posts $posts)
     {
         // $posts = Post::orderby('created_at','asc')->get();
 
