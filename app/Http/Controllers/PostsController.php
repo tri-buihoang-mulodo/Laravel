@@ -33,6 +33,9 @@ class PostsController extends Controller
         //  lesson 21:
         // $posts = (new \App\Repositories\Posts)->all();
 
+        // lesson 29
+        // return session('message');
+
         // lesson 23:
         
         $posts = $posts->all();
@@ -81,6 +84,10 @@ class PostsController extends Controller
         );
 
         
+        // lesson 29
+        session()->flash(
+            'message','Your post has now been published.'
+        );
 
         // And then redirect to the home page.
         return redirect('/');
