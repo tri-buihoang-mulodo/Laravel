@@ -11,4 +11,10 @@ class Tag extends Model
     {
         return $this->belongsToMany(Post::class);
     }
+
+    // lesson 31
+    public function getRouteKeyName()
+    {
+    	return 'name';
+    }
 }
